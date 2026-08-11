@@ -71,9 +71,31 @@
   .field label{font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:var(--steel-dim); display:block; margin-bottom:6px;}
   .field-input-wrap{position:relative;}
   .field input{
-    width:100%; background:var(--panel-2); border:1px solid var(--line); border-radius:8px; padding:12px 42px 12px 13px;
-    color:var(--white); font-family:var(--mono); font-size:13px; outline:none; transition:.2s;
-  }
+    width:100%;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:12px 42px 12px 13px;
+    color:var(--white);
+    -webkit-text-fill-color:var(--white);
+    caret-color:var(--ice);
+    font-family:var(--mono);
+    font-size:13px;
+    outline:none;
+    transition:.2s;
+}
+
+/* Prevent Chrome/Edge autofill from changing the design */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus,
+.field input:-webkit-autofill:active{
+    -webkit-text-fill-color:var(--white);
+    -webkit-box-shadow:0 0 0 1000px var(--panel-2) inset;
+    box-shadow:0 0 0 1000px var(--panel-2) inset;
+    border:1px solid var(--line);
+    caret-color:var(--ice);
+}
   .field input:focus{border-color:var(--ice); box-shadow:0 0 0 3px rgba(79,209,255,0.1);}
   .field input.err{border-color:var(--red); animation:shake .35s;}
   @keyframes shake{
@@ -303,7 +325,7 @@
   <!-- SCREEN 1: LOGIN -->
   <section class="flow-screen glow-ice active" id="screenLogin">
     <div class="flow-inner">
-      <div class="flow-brand"><span class="dot"></span> Login Logic Engine</div>
+      <div class="flow-brand"><span class="dot"></span> Login Logic Engine </div>
       <div class="flow-stepper">
         <div class="step-dot active" id="dot1">1</div>
         <div class="step-line" id="line1"></div>
@@ -318,13 +340,13 @@
         <div class="field">
           <label>Email</label>
           <div class="field-input-wrap">
-            <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="off" color="blue">
+            <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="off">
           </div>
         </div>
         <div class="field">
           <label>Password</label>
           <div class="field-input-wrap">
-            <input type="password" id="passInput" placeholder="Enter password" autocomplete="off" color="blue">
+            <input type="password" id="passInput" placeholder="Enter password" autocomplete="off">
             <button class="eye-btn" id="eyeBtn" type="button">show</button>
           </div>
         </div>
@@ -352,7 +374,7 @@
       </div>
       <div class="flow-card">
         <h2>Enter your code</h2>
-        <div class="flow-sub">OTP evaluates proposition Q — check the notification</div>
+        <div class="flow-sub">OTP evaluates proposition Q check the notification</div>
         <div class="otp-row" id="otpRow"></div>
         <div class="error-text" id="otpError"></div>
         <button class="action-btn" id="verifyOtpBtn">✓ Verify OTP</button>
@@ -378,7 +400,7 @@
             <path class="check" d="M6 15 L12 21 L24 8"/>
           </svg>
         </div>
-        <div class="device-status scanning" id="deviceStatusText">VERIFYING SESSION…</div>
+        <div class="device-status scanning" id="deviceStatusText"> VERIFYING SESSION </div>
         <div class="device-sub" id="deviceSubText">Matching this device's fingerprint against your trusted list.</div>
 
         <div class="check-list" id="checkList" style="display:none;">
